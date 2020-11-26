@@ -1,0 +1,22 @@
+{
+  "name": "ts-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf -rf ./dist && lerna run clean",
+    "build": "lerna run build",
+    "link": "yarn lerna exec yarn link",
+    "prerelease": "yarn build && node ./scripts/build.js"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "lerna": "^3.22.1",
+    "typescript": "^4.0.5"
+  }
+}
